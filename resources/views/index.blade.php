@@ -9,6 +9,11 @@
 @endphp
 
 @section('content')
+
+@if (Session::has('msg'))
+    <p class="alert alert-success">{{ Session::get('msg') }}</p>
+@endif
+
 <div class="container mt-3">
     <table class="table table-dark table-striped">
         <thead>
