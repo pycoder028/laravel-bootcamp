@@ -31,4 +31,29 @@ class StudentController extends Controller
         return redirect()->route('home');
     }
 
+    public function edit($id){
+        $student = Student::findOrFail($id);
+
+        return view('edit')->with('student', $student);
+    }
+
+    public function update(Request $request, $id){
+        $student = Student::findOrFail($id);
+
+        $student->name = $request->name;
+        $student->registration_id = $request->registration_id;
+        $student->department_name = $request->department_name;
+        $student->info = $request->info;
+
+        $student->save();
+        return redirect()->route('home');
+    }
+
+    public function delete($id){
+        $delete = Student::findOrFail($id);
+        $delete->delete();
+
+        return redirect()->route('home');
+    }
+
 }
