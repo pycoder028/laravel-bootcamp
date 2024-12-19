@@ -15,3 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/',[StudentController::class,'index'])->name('home');
+Route::get('/create', [StudentController::class, 'create'])->name('create');
+
+Route::post('/store', [StudentController::class, 'store'])->name('store');
